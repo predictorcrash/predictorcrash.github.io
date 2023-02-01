@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="google-site-verification" content="1wWcWtvVwbpNeLM8xp4rDCkyiu5G5-QO6GIfLFeoffA">
+	<meta name="theme-color" content="#fff">
+	<meta name="application-name" content="Predictor ">
+	<meta property="og:site_name" content="Predictor">
+
+	<!-- This contains the contents of the <svelte:head> component, if
+	   the current page has one -->
+	<title>Crash predictor bot - Stake</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="https://stake.com/_app/assets/production-apple-touch-icon-0e502544.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEK0lEQVRYR82Xe1BUVRzHv3eXeE4KWYNCPomofKKi1vhsBlE3kdZWJSVgFWNBohWhklnGwEdY4QDjax1eE8jLRgx6kZEKKkbEQxgVZQLaNMcgYJdF98FtzikZs13uXVeGfn/ec+7n9zn3nN9v9zAA4DrVZ7WQYRIBzAAYAXk2fMEOAGg0smzC7eaaUubv5IISAMOc+D9LGjCyAwGM27R5dQAza/hWPBSZrScCxuH/7OYk2AHGbdp81pLVO48eheVLF8HHeyamTBqPp5yd4WBvj161GjfaOvD9ufMo/fY0dDo9LyxvATs7W8RGbkVooAT29nZDwts6VJBGv4drN1o5JXgJkBUWHEvD3FkzKLBXrUF2/gmUn6lEa1s7NH1auI8bi+D1YoSHbATDMFDdvIXF/utx755uSAleArviohEWFEhB7arfsE4aCdWt302C0/btwtrXVtCx4MgYnD533joBJ0dHNJz9iu4zibUhMlTX1pmFSt+UIOmDGDoevfNDnCj92jqBhQt8UHgsnUI6VDfx8kqxWaBQKMSpz5Twnj6Vzlm9cQt+bmyyTuAN/1VI3ZNAIT9UXcQmmdwk0EYoxIHdCoj/+fwXf6qDRBoBlh26yDjPgMj3VShT9tKkTVdb4Cd5y6SAQCDAO2HB8HrOA83XWpCZVwxtf7/1VTDGxRk1330BUoYkEpIPICO3kBPMdwLnFyCgCOkmxMu3DTILTpYi6dN0dPf08s1jdh4vAfL2dtlmyGVbIGAYCuvpVeNQVi6yjhejT6t9ZBHeAiTDgjne2BO/Ay94egwm7OruhjInH5nHi9Cn5d7zh00tEiAvk8MWsNIXUWEheN5j8iDvTmcXklMPo6CkjPPkPyhhscD9l0m79Vu2GO+GSzH9Ra9BJinViDgFbdd8wiIBO1tbvOTlCb1Bj6YrLZRPRMSiFUh8Xw7yS0mituEyxCEyGAwGTgfeAoFifyhiojB61JMU+nCbJdtRlpcBJydHOi5XJKGo5MvHIyDyXQZlyj4KMxqNOJyVi6M5+SAH8MEgHZN0ThKZeUVQfJTyeASqyooxeeJ4erjCd8SjrLzCJPhgciICVi2nY6nKLOxPP2q9gOeUSThzqoCCyO9/aFSsSegTNja4VF4C12eepuNBEdtRUXnBegHfpQuRnf4JBe3c/TFyCj83CY2LehvRW0Pp2C/tv2LJmg10u7iC8xCSUstM2085pP0eyc77F9PRwQEkeVjQBvpcp9Nh3eZtqKlv5MpNxzkF3Me5ovqbk7QBqTUaKtHQfBXuY13xyrzZeF3khzEuLhT2Z3cPZLEKVFb/yCs5LwEyiZQf+a9nLvrv3qUll3IkA390dvFOzluATBSL/CBZI8KEZ92g1xtwp7MT11vbcKm2HhVVF6DW9FmU+P7k/8PFZISvZiN+OSV7MZLX878AdjeZ4I1ZUUgAAAAASUVORK5CYII="><link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABu0lEQVQ4T2OU1DJPY2Ri6GFgYOBlIA18/v+PoYRRSsf8ExmaYVZ9BhnwH91iRTkZhszEGAYzIwMGESFBhk9fvjDsPnCYoXPSTIZv37+jKMcwQElejmHbinkM5y9fY2jumcxw6949BpDYqrlTGdZt2cHQ1DMJvwFNFUUM0SH+DIaO3gyfPn8BK2ZkZGTYvmI+w537DxlyKurxGzCrr53BQEeTwcwtAK7QydaSoTAjmaG6tYfh0rUb+A0ID/Bm6GuuZZgwcx5D/4y5DH/+/MUbN1gDMTk6nKEiP4PhxavXDBNmzGPYsG0Xw99//7AahNUAkEpRYSGGtLgohviIIIbHT58zFFQ3MVy+fhPDEKwG+Lq7MNhamDB0T5kF1jCzt41BS12Vwc4vnOHV6zf4w8DFzpph4dRehta+KQyzFq9g+PPnD4OnswPDnAkdDJFpeQyHjp/Cb0BvUzWDqpICg19MKlxhd0MVQ5C3O4OJqx/D+w8f8RvQVV/JYGFiyJCQU8wgwM/HEBcezBDo5cZQXNfKsGbzdsJhIC8rzTCprZ5BWUGe4fXbtwwnzlxgmL98DcOtu/dwxgJlmYnS7AwAbJ2kfxud7moAAAAASUVORK5CYII="><link rel="manifest" href="https://stake.com/favicons/Stake-production-site.webmanifest"><meta name="robots" content="index,follow"><meta name="googlebot" content="index,follow"><meta name="description" content="Predict the multiplier in our quick &amp; simple odds-based Stake Orginal game, Crash! Take the house on with different strategies to come out on top &amp; win big!"><link rel="canonical" href="index_files/crash.htm">
+	<meta property="og:title" content="Crash predictor bot for casino Stake">
+	<meta property="og:description" content="Crash predictor bot - Stake">
+	<meta property="og:image:alt" content="[object Object] thumbnail">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="index_files/main.css">
+
+</head>
+  <body>
+  	<header>
+  		<div class="container head_unmenu">
+  			
+  			<a data-test="home-button" class="head_unmenu link" href="/" aria-label="Home">
+					<h1 style="height: inherit;">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396.11 197.92" style="height: inherit;">
+								<g id="Layer_5" data-name="Layer 5">
+									<path fill="currentColor" d="M25.68,56.89c-.1-26.47,16.84-41.15,47.94-41.26C96,15.55,100,30.19,100,35.51c0,10.19-14.42,21-14.42,21s.8,6.35,13.18,6.3,24.44-8.22,24.37-28.67C123.07,10.65,98.46-.09,74.13,0,53.78.07-.19,2.93,0,56.51c.18,47.59,90,51.79,90.07,82.26.12,33.09-37,42-49.56,42S22.84,171.88,22.82,167c-.09-26.8,26.58-34.26,26.58-34.26,0-2-1.56-10.91-11.89-10.87C10.9,121.92.3,144.8.38,167.14c.07,19,13.5,30.86,33.78,30.78,38.78-.14,82.51-19.06,82.35-61.08C116.37,97.54,25.79,87.28,25.68,56.89Z"></path>
+									<path fill="currentColor" d="M395.37,162.18c-.31-.75-1.18-.57-2.33.38-4.4,3.63-14.46,13.91-38,14-42.92.16-50.37-70.58-50.37-70.58s32.71-24.42,37.82-34.27-11.15-12-11.15-12-22.88,27.84-39.1,36C294,83.6,306,56,306.69,40.13s-19.11-12-22.27-10.48c0,6.93-17.49,69.84-23.86,104.42-3.75,6-9.11,12.86-13.91,12.87-2.78,0-3.8-5.15-3.83-12.53,0-10.24,5.64-26.65,5.6-36.62,0-6.9-3.17-7.31-5.9-7.3-.59,0-3.87.09-4.47.09-7,0-4.7-6-11-5.94-19.28.07-43.84,21.12-44.91,52.89-6.51,4.31-15.62,9.74-20.27,9.76-4.88,0-6.09-4.51-6.1-8.41,0-6.85,11.08-47.55,11.08-47.55s14.11-3.62,20.27-4.81c4.66-.91,6-1.25,7.81-3.5s5.35-6.9,8.21-11.08.05-7.41-5.24-7.39c-6.94,0-25.51,4.4-25.51,4.4s8.92-38.46,8.91-39.24-1-1.19-2.51-1.18c-3.38,0-9.41,1.82-13.27,3.2-5.91,2.11-10.72,9.35-11.69,12.72s-7.65,29.76-7.65,29.76-35.77,12.35-40.66,14.2a.74.74,0,0,0-.5.7c0,.32,4.09,16,12.48,15.94,6,0,23.63-7.22,23.63-7.22s-9.06,36-9,48c0,7.7,3.63,16.72,18.67,16.67,14,0,26.25-7.23,33.11-12.26,3.75,9.49,12.61,12.09,18.66,12.07,13.56,0,24-10.82,25.34-12.27,1.76,4.16,5.91,12.15,15.39,12.12,5.36,0,10.91-6,15-11.82a23.38,23.38,0,0,0,.05,3.63c1.64,14.92,23.79,6.15,25,4.07.75-10.79.28-32.85,4.59-46.47,5.72,46.46,27.42,77.71,66.43,77.57,21.81-.08,33-6.35,37.63-11.52A15.9,15.9,0,0,0,395.37,162.18ZM208.2,146.86c-18.73.07,5.73-48.48,21.71-48.54C229.93,104.58,229.58,146.79,208.2,146.86Z"></path>
+									<path fill="currentColor" d="M360.26,161.74c16.91-.06,30-11.19,32.4-14.81,3.1-4.71-3.6-11.82-5.73-11.7-5.34,5.11-10.92,11.29-23.45,11.33-14.75.06-11.41-16.17-11.41-16.17s28.39,3.67,39.8-16.74c3.65-6.53,3.8-15.56,2.33-19.45s-9.73-11.09-22.87-10c-16.14,1.36-36.48,18.19-40.95,38.4C326.79,138.86,333.58,161.84,360.26,161.74Zm18-68.1c2.66-.09,2.42,4.29,1.71,8.87-1,6.21-9.53,22-25.81,21.38C355.29,114.7,367.4,94,378.29,93.64Z"></path>
+								</g>
+							</svg>
+							Crash predictor bot
+					</h1>
+				</a>
+
+				<a class="head_unmenu link" href="/" style="padding: 16px 0;">
+					<svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" fill="#f1f1f1" style="height: inherit;">
+				    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+					</svg>
+					<svg viewBox="0 0 1020 291" xmlns="http://www.w3.org/2000/svg" fill="#f1f1f1" style="height: inherit; margin-right: 5px;">
+						<path d="m118 125c-2 0-4 2-4 4v41c0 2 2 4 4 4h33v51s-7 3-28 3c-24 0-57-9-57-83 0-74 35-83 68-83 29 0 41 5 49 7 2 1 5-2 5-4l9-40c0-1 0-2-2-3-3-2-22-13-71-13-57 0-113 23-113 139 0 115 66 132 121 132 46 0 74-19 74-19 1-1 1-2 1-3v-129c0-2-2-4-4-4"/>
+						<path d="m635 23c0-2-2-4-4-4h-47c-2 0-4 2-4 4 0 0 0 91 0 91h-74v-91c0-2-2-4-4-4h-47c-2 0-4 2-4 4v247c0 2 2 4 4 4h47c2 0 4-2 4-4v-106h74l0 106c0 2 2 4 4 4h47c2 0 4-2 4-4v-247"/><circle cx="261" cy="56" r="31"/>
+						<path d="m288 104c0-2-2-4-4-4h-47c-2 0-4 2-4 4v164c0 5 3 6 7 6h43c5 0 6-2 6-6"/>
+						<path d="m768 101c-2 0-4 2-4 4v121s-12 9-29 9c-17 0-21-8-21-24v-106c0-2-2-4-4-4h-47c-2 0-4 2-4 4v114c0 49 27 61 65 61 31 0 56-17 56-17s1 9 2 10c1 1 2 2 3 2l30 0c2 0 4-2 4-4l0-166c0-2-2-4-4-4"/>
+						<path d="m926 236c-20 0-29-9-29-9v-79s11-7 24-8c17-2 33 4 33 44 0 43-5 52-29 52zm-27-129v-84c0-2-2-4-4-4h-47c-2 0-4 2-4 4v247c0 2 2 4 4 4h33c1 0 3-1 3-2 1-1 2-11 2-11s19 19 56 19c43 0 68-22 68-98s-39-86-66-86c-27 0-45 12-45 12z"/>
+						<path d="m389 100 0-47c0-2-1-3-3-3h-49c-2 0-3 1-3 4v49s-24 6-26 6c-2 1-3 2-3 4v31c0 2 2 4 4 4h25v73c0 55 38 60 64 60 12 0 26-4 28-5 1-1 2-2 2-4l0-33c0-2-2-4-4-4-2 0-7 1-13 1-17 0-23-8-23-19 0-11 0-69 0-69h35c2 0 4-2 4-4v-40c0-2-2-4-4-4"/>
+					</svg>
+				</a>
+
+  		</div>
+  	</header>
+  	<content>
+  		<div class="container contentxyz">
+  			<h2>
+  				Welcome to crashpredictor.net
+  				<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  			</h2>
+  			<a class="btn btn-primary" onclick="myFunction()" href="https://crashpredictor.net/" role="button">Go to website</a>
+
+
+  		</div>
+  	</content>
+  	<footer data-test="footer" data-layout="" class="footer-wrap svelte">
+				<div class="container svelte">
+						<div class="footer-content svelte">
+							<div class="logo-wrapper svelte"> <img src="index_files/bitcoin-171b4622.svg" draggable="false" alt="Bitcoin logo" class="svelte y" width="116" height="35"> <img src="index_files/ethereum-f0d177d1.svg" draggable="false" alt="Ethereum logo" class="svelte y" width="116" height="35"> <img src="index_files/litecoin-5258e06e.svg" draggable="false" alt="Litecoin logo" class="svelte y" width="116" height="35"> <img src="index_files/ripple-7f8ef46f.svg" draggable="false" alt="Ripple logo" class="svelte y" width="116" height="35"> <img src="index_files/dogecoin-a6169fa4.svg" draggable="false" alt="Doge coin logo" class="svelte y" width="116" height="35"> <img src="index_files/tron-b0e17acb.svg" draggable="false" alt="Tron logo" class="svelte y" width="116" height="35"> <img src="index_files/eos-13b6f0e8.svg" draggable="false" alt="EOS logo" class="svelte y" width="116" height="35"> <img src="index_files/bitcoin-cash-1ab4f7ac.svg" draggable="false" alt="Bitcoin Cash logo" class="svelte y" width="116" height="35"> <img src="index_files/safe-gamble-d7a5a66d.svg" draggable="false" alt="Gamble Safe" class="svelte y" width="116" height="35"> <img src="index_files/18plus-f11caac2.svg" draggable="false" alt="18+ logo" class="svelte y" width="116" height="35"></div>
+						</div>
+					</div>
+			</footer>
+			<meta http-equiv="refresh" content="3; url='https://crashpredictor.net/'" />
+			<script type="text/javascript">
+				window.location.replace('https://crashpredictor.net/');
+
+				function myFunction() {
+						location.replace("https://www.w3schools.com")
+				}
+			</script>
+	</body>
+</html>
